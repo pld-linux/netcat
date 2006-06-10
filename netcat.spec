@@ -10,6 +10,9 @@ Group:		Networking/Admin
 Source0:	http://dl.sourceforge.net/netcat/netcat-%{version}.tar.bz2
 # Source0-md5:	0a29eff1736ddb5effd0b1ec1f6fe0ef
 URL:		http://netcat.sourceforge.net/
+BuildRequires:	autoconf >= 2.53
+BuildRequires:	automake
+BuildRequires:	gettext-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -49,14 +52,11 @@ UDP. Também pode receber conexões.
 %setup -q
 
 %build
-%{__intltoolize}
 %{__gettextize}
-%{__libtoolize}
 %{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-cp -f /usr/share/automake/config.sub .
 %configure
 %{__make}
 
