@@ -4,15 +4,12 @@ Summary(pl.UTF-8):	Proste narzędzie do testowania sieci
 Summary(pt_BR.UTF-8):	Ferramenta de teste e depuração para serviços de rede
 Name:		netcat
 Version:	0.7.1
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Networking/Admin
 Source0:	http://dl.sourceforge.net/netcat/netcat-%{version}.tar.bz2
 # Source0-md5:	0a29eff1736ddb5effd0b1ec1f6fe0ef
 URL:		http://netcat.sourceforge.net/
-BuildRequires:	autoconf >= 2.53
-BuildRequires:	automake
-BuildRequires:	gettext-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -52,11 +49,6 @@ UDP. Também pode receber conexões.
 %setup -q
 
 %build
-%{__gettextize}
-%{__aclocal} -I m4
-%{__autoconf}
-%{__autoheader}
-%{__automake}
 %configure
 %{__make}
 
