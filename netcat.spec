@@ -1,3 +1,5 @@
+# TODO:
+# - option "-w 1" doesn't work with "-u". Works under old-fashion nc client.
 Summary:	Versatile network test and debugging tool
 Summary(es.UTF-8):	Herramienta de prueba e depuración para servicios de red
 Summary(pl.UTF-8):	Proste narzędzie do testowania sieci
