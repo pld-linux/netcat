@@ -6,7 +6,7 @@ Summary(pl.UTF-8):	Proste narzędzie do testowania sieci
 Summary(pt_BR.UTF-8):	Ferramenta de teste e depuração para serviços de rede
 Name:		netcat
 Version:	0.7.1
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Networking/Admin
 Source0:	http://dl.sourceforge.net/netcat/netcat-%{version}.tar.bz2
@@ -60,6 +60,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+rm -f $RPM_BUILD_ROOT%{_infodir}/dir
+
 %find_lang netcat
 
 %clean
@@ -74,6 +76,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc Change* NEWS README TODO 
-%attr(755,root,root) %{_bindir}/*
+%{_bindir}/*
 %{_mandir}/man1/*
 %{_infodir}/*.info*
