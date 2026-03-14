@@ -9,9 +9,9 @@ Version:	0.7.1
 Release:	3
 License:	GPL v2+
 Group:		Networking/Admin
-Source0:	http://dl.sourceforge.net/netcat/netcat-%{version}.tar.bz2
+Source0:	https://downloads.sourceforge.net/netcat/netcat-%{version}.tar.bz2
 # Source0-md5:	0a29eff1736ddb5effd0b1ec1f6fe0ef
-URL:		http://netcat.sourceforge.net/
+URL:		https://netcat.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -67,15 +67,16 @@ rm -f $RPM_BUILD_ROOT%{_infodir}/dir
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p	/sbin/postshell
+%post	-p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
-%postun	-p	/sbin/postshell
+%postun	-p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc Change* NEWS README TODO 
-%{_bindir}/*
-%{_mandir}/man1/*
-%{_infodir}/*.info*
+%attr(755,root,root) %{_bindir}/netcat
+%{_bindir}/nc
+%{_mandir}/man1/netcat.1*
+%{_infodir}/netcat.info*
